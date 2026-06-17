@@ -1,0 +1,13 @@
+{
+  "sqltools.connections": [
+    {
+      "name": "mydb",
+      "driver": "PostgreSQL",
+      "host": "db",
+      "port": 5432,
+      "database": "mydb",
+      "username": "postgres",
+      "password": "postgres"
+    }
+  ]
+}
