@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../sql:/docker-entrypoint-initdb.d
+
+volumes:
+  postgres-data:
