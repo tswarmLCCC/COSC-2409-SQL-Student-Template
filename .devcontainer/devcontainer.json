@@ -1,11 +1,21 @@
 {
-  "name": "COSC 2409",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/postgres:1": {
-      "version": "latest"
-    }
+  "name": "SQL Dev Container",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [5432],
+  "remoteEnv": {
+    "DATABASE_URL": "postgresql://postgres:postgres@db:5432/mydb"
   },
-  "remoteUser": "vscode",
-  "postCreateCommand": "sudo -u postgres psql -c \"ALTER USER postgres WITH PASSWORD 'postgres';\" && sudo -u postgres createdb cosc2409"
+  "features": {
+    "ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg"
+      ]
+    }
+  }
 }
