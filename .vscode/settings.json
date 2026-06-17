@@ -8,6 +8,17 @@
       "database": "mydb",
       "username": "postgres",
       "password": "postgres"
+    },
+    {
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "db",
+      "port": 5432,
+      "driver": "CockroachDB",
+      "name": "mydb",
+      "database": "mydb",
+      "username": "postgres",
+      "password": "postgres"
     }
   ]
 }
